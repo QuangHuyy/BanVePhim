@@ -16,6 +16,7 @@
 		<input type="submit" value="Search" />
 	</form>
 	<h3><a href="lichchieu/new">New Film</a></h3>
+	<h1>Day la dong Lan làm</h1>
 	<table border="1" cellpadding="5">
 		<tr>
 			<th>ID</th>
