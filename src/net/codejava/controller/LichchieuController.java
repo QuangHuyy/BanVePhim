@@ -95,7 +95,7 @@ public class LichchieuController {
 		for(Ghe ghe : listGhe) {
 			System.out.println("Ghe cua lich la: " + ghe.getTen());
 			//Tam thoi dat gia tien la 9L
-			veService.save(new Ve(9L, ghe, lichchieu));
+			veService.save(new Ve(50L, ghe, lichchieu));
 		}
 		
 		System.out.println("Gio chieu = " + giochieu);

@@ -37,7 +37,7 @@ public class CustomerController {
 	@Autowired VeService veService;
 	@Autowired HoadonService hoadonService;
 
-	@RequestMapping("/")
+	@RequestMapping("/customer")
 	public ModelAndView home() {
 
 		System.out.println("Vao home customer nhe");

@@ -2,7 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <div align="center">
-	<h2>Chi tiết phim</h2>
+	<h1>Chi tiết phim</h1>
+	<br>
 	<div class="media">
 		<img src="${phim.anh}" class="" alt="...">
 		<div class="media-body">
@@ -19,8 +20,8 @@
 	<div class="row align-items-center">
 		<c:forEach items="${danhsachlichchieu}" var="lichchieu">
 			<div class="col-4">
-				<p>${lichchieu.ngaychieu}${lichchieu.giochieu}</p>
-				<a href="datve/seat?id=${phim.ma}" class="btn btn-info"
+				<p>${lichchieu.ngaychieu} ${lichchieu.giochieu}</p>
+				<a href="seat?id=${lichchieu.ma}" class="btn btn-info"
 					role="button">Chọn ghế</a>
 			</div>
 		</c:forEach>

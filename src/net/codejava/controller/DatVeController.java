@@ -30,21 +30,13 @@ import net.codejava.service.VeService;
 
 @Controller
 public class DatVeController {
-<<<<<<< HEAD
 	@Autowired PhimService phimService;
 	@Autowired LichchieuService lichchieuService;
 	@Autowired GheService gheService;
 	@Autowired VeService veService;
 	@Autowired HoadonService hoadonService;
-	
-=======
-	@Autowired
-	PhimService phimService;
-	@Autowired
-	LichchieuService lichchieuService;
 
->>>>>>> main
-	@RequestMapping("/datve")
+	@RequestMapping("/")
 	public ModelAndView DanhSachPhim() {
 		ModelAndView model = new ModelAndView("datve/chonphim");
 		List<Phim> danhsachphim = phimService.listAll();
@@ -62,21 +54,6 @@ public class DatVeController {
 		model.addObject("danhsachlichchieu", lichchieu);
 		return model;
 	}
-	
-	
-	
-//	@RequestMapping("/datve/hoadon")
-//	public ModelAndView formHoaDon(@RequestParam Long id)
-//	{
-//		ModelAndView mav = new ModelAndView("datve/hoadon");
-//			
-//		Hoadon hoadon = hoadonService.get(id);
-//		mav.addObject(hoadon);
-//		
-//		mav.addObject("listVe", veService.findByHoadon(hoadon));
-//		
-//		return mav;
-//	}
 	
 	@RequestMapping("/datve/hoadon")
 	public ModelAndView formHoaDonWithoutId()
@@ -137,10 +114,11 @@ public class DatVeController {
 	}
 	
 	@RequestMapping("/datve/seat")
-	public ModelAndView formChonghe()
+	public ModelAndView formChonghe(@RequestParam Long id)
 	{
 		System.out.println("Vao dat ve roi nhe 515");
-		Lichchieu lichchieu = lichchieuService.get(18L);
+//		Lichchieu lichchieu = lichchieuService.get(18L);
+		Lichchieu lichchieu = lichchieuService.get(id);
 		
 		// LAY DANH SACH VE THEO LICH CHIEU
 		List<Ve> listVe = veService.findByLichchieu(lichchieu);
@@ -152,39 +130,4 @@ public class DatVeController {
 		
 		return mav;
 	}
-	
-//	@RequestMapping(value="/datve/thanhtoan", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, 
-//            produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-//	public String ThanhToan(@RequestBody String selectedVe,@RequestParam("giatien") Long giatien,
-//			@RequestParam("lichchieu") Long malichchieu) {
-//		
-//		String[] arrOfStr = selectedVe.split("&selectedVe%5B%5D=");
-//		Hoadon hd = new Hoadon();
-//		Lichchieu lc = lichchieuService.get(malichchieu);
-//		hd.setLichchieu(lc);
-//		hd.setTongtien(giatien);
-//		hoadonService.save(hd);
-//		for (String s : arrOfStr)
-//		{
-//			try {
-//				Long v = Long.parseLong(s);
-//				Ve ve = veService.get(v);
-//				Ve veNew = new Ve();
-//				veNew.setGhe(ve.getGhe());
-//				veNew.setGiatien(ve.getGiatien());
-//				veNew.setLichchieu(lc);
-//				veNew.setHoadon(hd);
-//				
-//				veService.delete(ve.getMa());
-//				veService.save(veNew);
-//			}
-//			catch (Exception e) {
-//				System.out.println("Unable to convert: " + s);
-//			}
-//		}
-//		
-//		System.out.println("Save hoa don roi nha223");
-//		
-//		return "redirect:/datve/hoadon?id=" + hd.getMa();
-//	}
 }

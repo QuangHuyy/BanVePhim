@@ -2,7 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <div align="center">
-	<h2>Danh sách phim</h2>
+	<h1>Danh sách phim</h1>
+	<br>
 	<div class="container">
   <div class="row align-items-center">
   	<c:forEach items="${danhsachphim}" var="phim"> 
